@@ -44,7 +44,7 @@ void applyErrorToPixel(int x, int y, float errorRed, float errorGreen, float err
   if (isOutOfBounds(x, y))
     return;
     
-  color colorWithError = newColor(x, y, errorRed, errorGreen, errorBlue, errorFactor);
+  color colorWithError = newColorWithErrorApplied(x, y, errorRed, errorGreen, errorBlue, errorFactor);
   kitten.pixels[index(x, y)] = colorWithError;
 }
 
@@ -57,7 +57,7 @@ boolean isOutOfBounds(int x, int y) {
   return false;
 }
 
-color newColor(int x, int y, float errorRed, float errorGreen, float errorBlue, float errorFactor) {
+color newColorWithErrorApplied(int x, int y, float errorRed, float errorGreen, float errorBlue, float errorFactor) {
   int index = index(x, y);
   color currentColor = kitten.pixels[index];
   
